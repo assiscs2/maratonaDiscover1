@@ -28,7 +28,7 @@
           <span>Entradas</span>
           <img src="./assets/income.svg" alt="Imagem de entradas">
         </h3>
-        <p>R$ 5.000,00</p>
+        <p id="incomeDisplay"></p>
       </div>
 
       <div class="card">
@@ -37,7 +37,7 @@
           <span>Saídas</span>
           <img src="./assets/expense.svg" alt="Imagem de Saídas">
         </h3>
-        <p>R$ 2.000,00</p>
+        <p id="expenseDisplay"></p>
       </div>
 
       <div class="card total">
@@ -46,7 +46,7 @@
           <span>Total</span>
           <img src="./assets/total.svg" alt="Imagem do total">
         </h3>
-        <p>R$ 3.000,00</p>
+        <p id="totalDisplay"></p>
       </div>
     </section>
 
@@ -68,32 +68,7 @@
         </thead>
 
         <tbody>
-          <tr class="card">
-            <td class="description">Luz</td>
-            <td class="expense">-$500,00</td>
-            <td class="date">23/01/2021</td>
-            <td>
-              <img src="./assets/minus.svg" alt="Remover Transação">
-            </td>
-          </tr>
 
-          <tr class="card">
-            <td class="description">Criação Website</td>
-            <td class="income">$5000,00</td>
-            <td class="date">15/01/2021</td>
-            <td>
-              <img src="./assets/minus.svg" alt="Remover Transação">
-            </td>
-          </tr>
-
-          <tr class="card">
-            <td class="description">Internet</td>
-            <td class="expense">-$200,00</td>
-            <td class="date">23/01/2021</td>
-            <td>
-              <img src="./assets/minus.svg" alt="Remover Transação">
-            </td>
-          </tr>
         </tbody>
       </table>
     </section>
@@ -103,7 +78,7 @@
   <div class="modal">
     <div id="form">
       <h2>Nova Transação</h2>
-      <form action="">
+      <form action="" onsubmit="Form.submit(event)">
         <div class="input-group">
           <label class="sr-only" for="description">Descrição</label>
           <input 
@@ -111,6 +86,7 @@
           id="description" 
           name="description" 
           placeholder="Descrição" 
+          required
           />
         </div>
         <div class="input-group">
@@ -121,8 +97,9 @@
           id="amount" 
           name="amount" 
           placeholder="0,00" 
+          required
           />
-          <small>Use o sinal - (Negativo) para despesas e, (Vírgula) para casas decimais</small>
+          <small class="help">Use o sinal - (Negativo) para despesas e, (Vírgula) para casas decimais</small>
         </div>
         <div class="input-group">
           <label class="sr-only" for="date">Valor</label>
@@ -130,13 +107,14 @@
           type="date" 
           id="date" 
           name="date" 
+          required
           />
         </div>
         <div class="input-group actions">
           <a href="#" 
           onclick="Modal.close()"
           class="button cancel">Cancelar</a>
-          <button>Salvar</button>
+          <button onclick="Form.validateFields()">Salvar</button>
         </div>
       </form>
 
@@ -147,20 +125,7 @@
   <p>2021 - dev.finance$</p>
 </footer>
 
-<script>
-  const Modal = {
-    open (){
-      // Abrir o Modal
-      // Adicionar a classe active ao Modal
-      document.querySelector('.modal-overlay')
-      .classList.add('active')
-    },
-    close (){
-      document.querySelector('.modal-overlay')
-      .classList.remove('active')
-    }
-  }
-</script>
+<script src= "./scripts.js"></script>
 
 </body> 
 </html>

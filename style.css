@@ -238,6 +238,10 @@ td.expense {
     color: #e92929;
 }
 
+td.null {
+    color: grey;
+}
+
 /* Modal ==================================*/
 .modal-overlay {
     width: 100%;
@@ -305,7 +309,7 @@ td.expense {
     width: 100%;
 }
 
-.input-group small{
+.input-group .help {
     opacity: 0.4;
 }
 
